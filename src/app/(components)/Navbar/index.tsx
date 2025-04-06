@@ -16,7 +16,7 @@ const Navbar = () => {
                 </div>
             </div>
             {/* Icons */}
-            <div className="flex item-center">
+            <div className="flex items-center">
                 <Link
                     href={"/settings"}
                     className='h-min w-min rounded p-2 hover:bg-gray-100'
