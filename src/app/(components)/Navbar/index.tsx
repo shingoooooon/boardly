@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, Moon, Search, Settings, Sun } from "lucide-react"
+import { AlignJustify, Menu, Moon, Search, Settings, Sun } from "lucide-react"
 import Link from "next/link"
 import { useAppDispatch, useAppSelector } from '@/app/redux'
 import { setIsDarkMode, setIsSidebarCollapsed } from '@/state'
@@ -17,9 +17,9 @@ const Navbar = () => {
         <div className='flex items-center justify-between bg-white px-4 py-3 dark:bg-black'>
             {/* Search Bar */}
             <div className="flex items-center gap-8">
-                {isSidebarCollapsed ? null : (
+                {!isSidebarCollapsed ? null : (
                     <button onClick={() => dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))}>
-                        <Menu className='h-8 w-8 text-white' />
+                        <Menu className='h-8 w-8 text-white hover:text-gray-500' />
                     </button>
                 )}
                 <div className="relative flex h-min w-[200px]">
