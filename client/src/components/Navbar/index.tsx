@@ -19,7 +19,7 @@ const Navbar = () => {
             <div className="flex items-center gap-8">
                 {!isSidebarCollapsed ? null : (
                     <button onClick={() => dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))}>
-                        <Menu className='h-8 w-8 text-white hover:text-gray-500' />
+                        <Menu className='h-8 w-8 hover:text-gray-500' />
                     </button>
                 )}
                 <div className="relative flex h-min w-[200px]">
