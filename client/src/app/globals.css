@@ -18,3 +18,20 @@
     @apply dark:bg-black;
   }
 }
+
+@theme {
+  /* blue-primary */
+  --color-primary: #2979ff;
+
+  /* dark-secondary */
+  --color-secondary: #1d1f21;
+
+  /* dark-bg */
+  --color-dark: #101214;
+
+  /* dark-tertiary */
+  --color-tertiary: #101214;
+
+  /* stroke-dark */
+  --color-stroke: #2d3135;
+}

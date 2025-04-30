@@ -9,7 +9,7 @@ type taskCardProps = {
 
 const TaskCard = ({ task }: taskCardProps) => {
     return (
-        <div className='mb-3 rounded bg-white p-4 shadow dark:bg-dark-secondary dark:text-white'>
+        <div className='mb-3 rounded bg-white p-4 shadow dark:bg-secondary dark:text-white'>
             {task.attachments && task.attachments.length > 0 && (
                 <div>
                     <strong>Attachments:</strong>

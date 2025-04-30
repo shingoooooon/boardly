@@ -81,11 +81,11 @@ const TaskColumn = ({
                 <div className={`w-2 !bg-${statusColor[status]} rounded-s-lg`}
                     style={{ backgroundColor: statusColor[status] }}
                 />
-                <div className='flex w-full items-center justify-between rounded-e-lg bg-white px-5 py-4 dark:bg-dark-secondary'>
+                <div className='flex w-full items-center justify-between rounded-e-lg bg-white px-5 py-4 dark:bg-secondary'>
                     <h3 className='flex items-center text-lg font-semibold dark:text-white'>
                         {status}{" "}
                         <span
-                            className='ml-2 inline-block rounded-full bg-gray-200 p-1 text-center text-sm leading-none dark:bg-dark-tertiary'
+                            className='ml-2 inline-block rounded-full bg-gray-200 p-1 text-center text-sm leading-none dark:bg-tertiary'
                             style={{ width: "1.5rem", height: "1.5rem" }}
                         >
                             {tasksCount}
@@ -96,7 +96,7 @@ const TaskColumn = ({
                             <EllipsisVertical size={26} />
                         </button>
                         <button
-                            className='flex h-6 w-6 items-center justify-center rounded bg-gray-200 dark:bg-dark-tertiary dark:text-white'
+                            className='flex h-6 w-6 items-center justify-center rounded bg-gray-200 dark:bg-tertiary dark:text-white'
                             onClick={() => setIsModalNewTaskOpen(true)}
                         >
                             <Plus size={16} />
@@ -148,7 +148,7 @@ const Task = ({ task }: TaskProps) => {
             ref={(instance) => {
                 drag(instance)
             }}
-            className={`mb-4 rounded-md bg-white shadow dark:bg-dark-secondary ${isDragging ? "opacity-50" : "opacity-100"
+            className={`mb-4 rounded-md bg-white shadow dark:bg-secondary ${isDragging ? "opacity-50" : "opacity-100"
                 }`}
         >
             {task.attachments && task.attachments.length > 0 && (
@@ -193,7 +193,7 @@ const Task = ({ task }: TaskProps) => {
                 <p className='text-sm text-gray-600 dark:text-neutral-500'>
                     {task.description}
                 </p>
-                <div className='mt-4 border-1 border-gray-200 dark:border-stroke-dark' />
+                <div className='mt-4 border-1 border-gray-200 dark:border-stroke' />
 
                 {/* Users */}
                 <div className='mt-3 flex items-center justify-between'>
@@ -205,7 +205,7 @@ const Task = ({ task }: TaskProps) => {
                                 alt={task.assignee.username}
                                 width={30}
                                 height={30}
-                                className="h-8 w-8 rounded-full border-2 border-white object-cover dark:border-dark-secondary "
+                                className="h-8 w-8 rounded-full border-2 border-white object-cover dark:border-secondary "
                             />
                         )}
                         {task.author && (
@@ -215,7 +215,7 @@ const Task = ({ task }: TaskProps) => {
                                 alt={task.author.username}
                                 width={30}
                                 height={30}
-                                className="h-8 w-8 rounded-full border-2 border-white object-cover dark:border-dark-secondary "
+                                className="h-8 w-8 rounded-full border-2 border-white object-cover dark:border-secondary "
                             />
                         )}
                     </div>
