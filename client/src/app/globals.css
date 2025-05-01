@@ -35,3 +35,48 @@
   /* stroke-dark */
   --color-stroke: #2d3135;
 }
+
+/* TIMELINE STYLING */
+.timeline ._3_ygE {
+  @apply rounded-tl-md border border-r-0 border-[#e6e4e4] dark:border-stroke;
+}
+.timeline ._2eZzQ {
+  @apply border-[#e6e4e4] dark:border-stroke;
+}
+.timeline ._2dZTy {
+  @apply fill-white dark:fill-secondary;
+}
+.timeline ._2dZTy:nth-child(even) {
+  @apply fill-[#f5f5f5] dark:fill-tertiary;
+}
+.timeline ._35nLX {
+  @apply fill-white stroke-[#e6e4e4] dark:fill-secondary dark:stroke-stroke;
+}
+.timeline ._9w8d5 {
+  @apply fill-[#333] dark:fill-white;
+}
+.timeline ._34SS0 {
+  @apply bg-white dark:bg-secondary;
+}
+.timeline ._34SS0:nth-of-type(even) {
+  @apply bg-[#f5f5f5] dark:bg-tertiary;
+}
+.timeline ._RuwuK,
+.timeline ._3rUKi,
+.timeline ._1rLuZ {
+  @apply stroke-[#e6e4e4] dark:stroke-stroke;
+}
+.timeline ._3ZbQT {
+  @apply border-l-0 border-[#e6e4e4] dark:border-stroke;
+}
+.timeline ._3T42e {
+  @apply bg-white dark:bg-dark;
+}
+.timeline ._29NTg {
+  @apply dark:text-neutral-500;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
