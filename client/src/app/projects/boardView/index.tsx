@@ -13,7 +13,7 @@ type BoardProps = {
 }
 
 const BoardView = ({ id, setIsModalNewTaskOpen }: BoardProps) => {
-    const taskStatus = ["To Do", "In Progress", "In Review", "Completed"]
+    const taskStatus = ["To Do", "Work In Progress", "In Review", "Completed"]
     const { data: tasks, isLoading, error } = useGetTasksQuery({ projectId: Number(id) })
 
     const [updateTaskStatus] = useUpdateTaskStatusMutation()
