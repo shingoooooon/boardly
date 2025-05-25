@@ -50,3 +50,10 @@ export interface SearchResult {
     projects: Project[];
     users: User[];
 }
+
+export interface Teams {
+    teamId: number;
+    teamName: string;
+    productOwnerUserId?: number;
+    projectManagerUserId?: number;
+}

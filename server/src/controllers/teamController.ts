@@ -28,10 +28,7 @@ export const getTeams = async (
                 }
             })
         )
-
-
-
-        res.json(teams)
+        res.json(teamsWithUsernames)
     } catch (err: any) {
         res.status(500).json({ message: `Error retrieving teams: $${err.message}` })
     }
