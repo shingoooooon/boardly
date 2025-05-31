@@ -7,10 +7,10 @@ import React, { useState } from 'react'
 type Props = {
     isOpen: boolean;
     onClose: () => void;
-    id: string;
+    id?: string | null;
 }
 
-const ModalNewTask = ({ isOpen, onClose, id }: Props) => {
+const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
     const [createTask, { isLoading }] = useCreateTaskMutation();
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -21,10 +21,11 @@ const ModalNewTask = ({ isOpen, onClose, id }: Props) => {
     const [dueDate, setDueDate] = useState("");
     const [authorUserId, setAuthorUserId] = useState("");
     const [assignedUserId, setAssignedUserId] = useState("");
+    const [projectId, setProjectId] = useState("");
 
 
     const handleSubmit = async () => {
-        if (!title || !authorUserId || !startDate || !dueDate) return;
+        if (!title || !authorUserId || !startDate || !dueDate || !(id !== null || projectId)) return;
 
         const formattedStartedDate = formatISO(new Date(startDate), { representation: 'complete' });
         const formattedDueDate = formatISO(new Date(dueDate), { representation: 'complete' });
@@ -40,12 +41,12 @@ const ModalNewTask = ({ isOpen, onClose, id }: Props) => {
             dueDate: formattedDueDate,
             authorUserId: parseInt(authorUserId),
             assignedUserId: parseInt(assignedUserId),
-            projectId: Number(id),
+            projectId: id !== null ? Number(id) : Number(projectId)
         })
     }
 
     const isFormValid = () => {
-        return title && authorUserId && startDate && dueDate;
+        return title && authorUserId && startDate && dueDate && !(id !== null || projectId);
     }
 
     const selectedstyle =
@@ -140,6 +141,15 @@ const ModalNewTask = ({ isOpen, onClose, id }: Props) => {
                     value={assignedUserId}
                     onChange={(e) => setAssignedUserId(e.target.value)}
                 />
+                {id === null && (
+                    <input
+                        type="text"
+                        className={inputStyles}
+                        placeholder='Project Id'
+                        value={projectId}
+                        onChange={(e) => setProjectId(e.target.value)}
+                    />
+                )}
                 <button
                     type='submit'
                     className={`mt-4 flex w-full justify-center rounded-md border border-transparent bg-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus-offset-2

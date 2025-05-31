@@ -90,7 +90,7 @@ const Sidebar = () => {
                     <>
                         <SideBarLink icon={AlertCircle} label="Urgent" href="/priority/urgent" />
                         <SideBarLink icon={ShieldAlert} label="High" href="/priority/high" />
-                        <SideBarLink icon={AlertTriangle} label="Medium" href="/priority'medium" />
+                        <SideBarLink icon={AlertTriangle} label="Medium" href="/priority/medium" />
                         <SideBarLink icon={AlertOctagon} label="Low" href="/priority/low" />
                         <SideBarLink icon={Layers3} label="Backlog" href="/priority/backlog" />
                     </>
