@@ -7,12 +7,20 @@ import Timeline from '../TimelineView'
 import Table from '../TableView'
 import ModalNewTask from '@/components/ModalNewTask'
 
-type Props = {
-    params: { id: string }
+// type Props = {
+//     params: { id: string }
+// }
+
+
+type PageProps = {
+    params: {
+        id: string
+    }
 }
 
-const Project = ({ params }: Props) => {
-    const { id } = params
+
+const Project = ({ params }: PageProps) => {
+    const id = params.id
     const [activeTab, setActiveTab] = useState("Board")
     const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false)
 
