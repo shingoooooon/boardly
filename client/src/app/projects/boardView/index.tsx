@@ -1,11 +1,12 @@
 import { useGetTasksQuery, useUpdateTaskStatusMutation } from '@/state/api';
 import React from 'react'
-import { DndProvider, useDrag, useDrop } from 'react-dnd'
+import { DndProvider, DropTargetMonitor, useDrag, useDrop } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { Task as TaskType } from '@/types/types';
 import { EllipsisVertical, MessageSquareMore, Plus } from 'lucide-react';
 import { format } from "date-fns";
 import Image from 'next/image';
+import { Status } from '@/types/enums';
 
 type BoardProps = {
     id: string;
@@ -13,7 +14,8 @@ type BoardProps = {
 }
 
 const BoardView = ({ id, setIsModalNewTaskOpen }: BoardProps) => {
-    const taskStatus = ["To Do", "Work In Progress", "In Review", "Completed"]
+    const taskStatus = Object.values(Status);
+
     const { data: tasks, isLoading, error } = useGetTasksQuery({ projectId: Number(id) })
 
     const [updateTaskStatus] = useUpdateTaskStatusMutation()
@@ -41,7 +43,7 @@ const BoardView = ({ id, setIsModalNewTaskOpen }: BoardProps) => {
 }
 
 type TaskColumnProps = {
-    status: string;
+    status: Status;
     tasks: TaskType[];
     moveTask: (taskId: number, toStatus: string) => void;
     setIsModalNewTaskOpen: (isOpen: boolean) => void;
@@ -56,18 +58,18 @@ const TaskColumn = ({
     const [{ isOver }, drop] = useDrop(() => ({
         accept: "task",
         drop: (item: { id: number }) => moveTask(item.id, status),
-        collect: (monitor: any) => ({
+        collect: (monitor: DropTargetMonitor) => ({
             isOver: !!monitor.isOver()
         })
     }))
 
     const tasksCount = tasks.filter((task) => task.status === status).length
 
-    const statusColor: any = {
-        "To Do": "#2563EB",
-        "In Progress": "#059669",
-        "In Review": "#D97706",
-        "Completed": "#000000"
+    const statusColor: Record<Status, string> = {
+        [Status.ToDo]: "#2563EB",
+        [Status.WorkInProgress]: "#059669",
+        [Status.InReview]: "#D97706",
+        [Status.Completed]: "#000000"
     }
 
     return (

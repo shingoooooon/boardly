@@ -1,5 +1,5 @@
 "use client"
-import React, { use, useState } from 'react'
+import React, { useState } from 'react'
 import ProjectHeader from '@/app/projects/projectHeader'
 import Board from '../boardView'
 import List from '../ ListView'

@@ -1,5 +1,3 @@
-import { setIsDarkMode } from "@/state"
-
 export const dataGridClassNames =
     "border border-gray-200 bg-white shadow dark:!border-stroke dark:bg-secondary dark:!text-gray-200"
 
