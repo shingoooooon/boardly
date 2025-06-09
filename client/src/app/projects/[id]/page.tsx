@@ -7,12 +7,12 @@ import Timeline from '../TimelineView'
 import Table from '../TableView'
 import ModalNewTask from '@/components/ModalNewTask'
 
-const Project = ({
-    params,
-}: {
-    params: { id: string }
-}) => {
-    const id = params.id
+type Props = {
+    params: Promise<{ id: string }>;
+};
+
+const Project = async ({ params }: Props) => {
+    const { id } = await params
     const [activeTab, setActiveTab] = useState("Board")
     const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false)
 
