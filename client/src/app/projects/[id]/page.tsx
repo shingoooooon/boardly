@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { use, useState } from 'react'
 import ProjectHeader from '@/app/projects/projectHeader'
 import Board from '../boardView'
 import List from '../ ListView'
@@ -11,8 +11,8 @@ type Props = {
     params: Promise<{ id: string }>;
 };
 
-const Project = async ({ params }: Props) => {
-    const { id } = await params
+const Project = ({ params }: Props) => {
+    const { id } = use(params)
     const [activeTab, setActiveTab] = useState("Board")
     const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false)
 
