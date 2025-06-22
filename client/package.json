@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -29,7 +30,10 @@
     "react-redux": "^9.2.0",
     "recharts": "^2.15.2",
     "redux-persist": "^6.0.0",
-    "tailwindcss": "^4.1.4"
+    "tailwindcss": "^4.1.4",
+    "@prisma/client": "^6.6.0",
+    "@vercel/node": "^3.0.0",
+    "prisma": "^6.6.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
