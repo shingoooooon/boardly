@@ -1,0 +1,16 @@
+{
+    "name": "fullstack-app",
+    "scripts": {
+      "build": "cd client && npm run build",
+      "postinstall": "prisma generate"
+    },
+    "dependencies": {
+      "@prisma/client": "^6.6.0",
+      "@vercel/node": "^3.0.0",
+      "prisma": "^6.6.0"
+    },
+    "devDependencies": {
+      "@types/node": "^22.14.1",
+      "typescript": "^5.8.3"
+    }
+  }
